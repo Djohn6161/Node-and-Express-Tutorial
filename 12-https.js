@@ -6,19 +6,19 @@ const server = http.createServer((req, res) => {
         res.end();
     }
 
-    if(req.url === '/about'){
+    else if(req.url === '/about'){
         res.write("Here is our short History");
         res.end();
 
     }
-
-    res.write(`
-    <h1>Oops!</h1>
-    <p>We Can't seem to find the page your looking for</p>
-    <a href="/"> Back Home </a>
-    `)
+    else {
+        res.write(`
+            <h1>Oops!</h1>
+            <p>We Can't seem to find the page your looking for</p>
+            <a href="/"> Back Home </a>
+        `)
     res.end();
-
+    }
 })
 
 server.listen(5000);
